@@ -9,13 +9,13 @@ import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class PathFinderAppTest {
+class GameEngineTest {
 
     @Test
     public void chemManShouldContainClimbUpAndClimbDownLetters() throws URISyntaxException, IOException {
         String expectedPath = "WFFFFFFFSFEUDFFFFUDFFFFSFWFFFUFFDSFEFUDFUFFFDFWFUFFFDFUDFFFFFFSFEFFFFFFFFFUDSFWFFFFFUDFSUDEFFFUFFSDEFFFFUDFSF";
         char[][] map = MapLoader.readMap("simple.in");
-        ChemMan actualResult = PathFinderApp.startGame(map);
+        ChemMan actualResult = GameEngine.startGame(map);
         assertEquals(expectedPath, actualResult.getPath());
     }
 
