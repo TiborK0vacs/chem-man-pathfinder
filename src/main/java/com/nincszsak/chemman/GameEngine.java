@@ -27,7 +27,7 @@ public class GameEngine {
                     target = TargetLocator.findNextTarget(coinList, chemMan, map);
                 }
             }
-            Coordinates nextMove = Driver.findDirection(coinList.get(0).getCoordinates(), chemMan.getCoordinates());
+            Coordinates nextMove = Driver.findDirection(target.getCoordinates(), chemMan.getCoordinates());
             chemMan.move(nextMove, map);
         }
         return chemMan;
