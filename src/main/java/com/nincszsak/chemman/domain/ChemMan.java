@@ -29,20 +29,33 @@ public class ChemMan {
     }
 
     // Operations
-    public void move(Coordinates coordinates) {
-        if (this.direction.equals(coordinates.getDirection())) {
-            activityLog.append("F");
-        } else {
+    public void move(Coordinates coordinates, final char[][] map) {
+        if (!this.direction.equals(coordinates.getDirection())) {
             turn(coordinates.getDirection());
+        }
+        if (shouldIClimbUp(coordinates, map)) {
+            activityLog.append("U");
+        } else if (shouldIClimbDown(coordinates, map)) {
+            activityLog.append("D");
+        } else {
             activityLog.append("F");
         }
         x = coordinates.getX();
         y = coordinates.getY();
     }
 
+    private boolean shouldIClimbDown(Coordinates coordinates, char[][] map) {
+        return map[this.x][this.y] == '#' &&
+                (map[coordinates.getX()][coordinates.getY()] == '.' || map[coordinates.getX()][coordinates.getY()] == 'c');
+    }
+
+    private boolean shouldIClimbUp(Coordinates coordinates, char[][] map) {
+        return map[coordinates.getX()][coordinates.getY()] == '#' &&
+                (map[this.x][this.y] == '.' || map[this.x][this.y] == 'c');
+    }
+
     private void turn(Direction newDirection) {
         activityLog.append(newDirection);
         direction = newDirection;
     }
-
 }

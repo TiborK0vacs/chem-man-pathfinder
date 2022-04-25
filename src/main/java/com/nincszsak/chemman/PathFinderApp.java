@@ -45,7 +45,7 @@ public class PathFinderApp {
                 }
             }
             Coordinates nextMove = Driver.findDirection(coinList.get(0).getCoordinates(), chemMan.getCoordinates());
-            chemMan.move(nextMove);
+            chemMan.move(nextMove, map);
         }
 
         showPath(chemMan, foundCoins);
