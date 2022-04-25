@@ -12,7 +12,7 @@ public class PathFinderApp {
     public static void main(String[] args) throws URISyntaxException, IOException {
         System.out.println("Program stated");
 
-        char[][] map = MapLoader.readMap("level1.in");
+        char[][] map = MapLoader.readMap("simple.in");
 
         ChemMan chemMan = GameEngine.startGame(map);
 

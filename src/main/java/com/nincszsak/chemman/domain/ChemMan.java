@@ -16,6 +16,13 @@ public class ChemMan {
         this.activityLog = new StringBuilder();
     }
 
+    public ChemMan(int x, int y, Direction direction) {
+        this.x = x;
+        this.y = y;
+        this.direction = direction;
+        this.activityLog = new StringBuilder();
+    }
+
     public Coordinates getCoordinates() {
         return new Coordinates(x, y);
     }

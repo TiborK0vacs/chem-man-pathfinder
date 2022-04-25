@@ -31,6 +31,14 @@ public class CoinLocator {
         return result;
     }
 
+    public static boolean hasThisLocationCoin2(Coin coin, Coordinates coordinates1) {
+        boolean result = false;
+        if (coordinates1.equals(coin.getCoordinates())) {
+            result = true;
+        }
+        return result;
+    }
+
     public static int getFoundCoins() {
         return foundCoins;
     }

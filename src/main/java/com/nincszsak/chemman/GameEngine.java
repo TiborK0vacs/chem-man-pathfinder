@@ -1,6 +1,9 @@
 package com.nincszsak.chemman;
 
-import com.nincszsak.chemman.components.*;
+import com.nincszsak.chemman.components.ChemManInitializer;
+import com.nincszsak.chemman.components.CoinLocator;
+import com.nincszsak.chemman.components.Driver;
+import com.nincszsak.chemman.components.TargetLocator;
 import com.nincszsak.chemman.domain.ChemMan;
 import com.nincszsak.chemman.domain.Coin;
 import com.nincszsak.chemman.domain.Coordinates;
@@ -14,14 +17,14 @@ public class GameEngine {
 
         System.out.println("There are " + coinList.size() + " coins on this map.");
 
-        Coin target = TargetLocator.findNextTarget(coinList, chemMan.getCoordinates());
+        Coin target = TargetLocator.findNextTarget(coinList, chemMan, map);
         while (!coinList.isEmpty()) {
             if (CoinLocator.hasThisLocationCoin(target, chemMan.getCoordinates())) {
                 coinList.remove(target);
                 if (coinList.isEmpty()) {
                     break;
                 } else {
-                    target = TargetLocator.findNextTarget(coinList, chemMan.getCoordinates());
+                    target = TargetLocator.findNextTarget(coinList, chemMan, map);
                 }
             }
             Coordinates nextMove = Driver.findDirection(coinList.get(0).getCoordinates(), chemMan.getCoordinates());

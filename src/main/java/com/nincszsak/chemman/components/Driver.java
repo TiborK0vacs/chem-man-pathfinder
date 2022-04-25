@@ -2,6 +2,7 @@ package com.nincszsak.chemman.components;
 
 import com.nincszsak.chemman.domain.Coordinates;
 import com.nincszsak.chemman.domain.Direction;
+import com.nincszsak.chemman.exceptions.ChemManArrivedException;
 
 public class Driver {
     public static Coordinates findDirection(Coordinates targetCoordinates, Coordinates chemManCoordinates) {
@@ -17,7 +18,7 @@ public class Driver {
         } else if (targetCoordinates.getX() > chemManCoordinates.getX()) {
             nextStep = new Coordinates(chemManCoordinates.getX() + 1, chemManCoordinates.getY(), Direction.S);
         } else {
-            throw new RuntimeException("You are on the target.");
+            throw new ChemManArrivedException("You are on the target.");
         }
         return nextStep;
     }
