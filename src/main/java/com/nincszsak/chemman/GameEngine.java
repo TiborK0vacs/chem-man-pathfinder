@@ -18,8 +18,10 @@ public class GameEngine {
         System.out.println("There are " + coinList.size() + " coins on this map.");
 
         Coin target = TargetLocator.findNextTarget(coinList, chemMan, map);
+        System.out.println("The first Coin is at (" + target.getCoordinates().getX() + "," + target.getCoordinates().getY() + ")");
         while (!coinList.isEmpty()) {
             if (CoinLocator.hasThisLocationCoin(target, chemMan.getCoordinates())) {
+                System.out.println("Coin was found at (" + target.getCoordinates().getX() + "," + target.getCoordinates().getY() + ")");
                 coinList.remove(target);
                 if (coinList.isEmpty()) {
                     break;

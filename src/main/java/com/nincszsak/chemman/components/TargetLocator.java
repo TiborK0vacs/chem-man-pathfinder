@@ -13,7 +13,7 @@ public class TargetLocator {
     public static Coin findNextTarget(List<Coin> coinList, ChemMan chemMan, char[][] map) {
 //        return coinList.get(0);
         calculatePathsToCoins(coinList, chemMan, map);
-        printAllCoinDistance(coinList);
+//        printAllCoinDistance(coinList);
         return getClosestCoin(coinList);
     }
 
